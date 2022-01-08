@@ -31,6 +31,16 @@ public class PersonVersioningControl {
         return new PersonV2(new Name("Jim", "Jimerson"));
     }
 
+    @GetMapping(value = "person/produces", produces = "application/vnd.company.app-v1+json")
+    public PersonV1 personV1Produces(){
+        return new PersonV1("Bob Boberson");
+    }
+
+    @GetMapping(value = "person/produces", produces = "application/vnd.company.app-v2+json")
+    public PersonV2 personV2Produces(){
+        return new PersonV2(new Name("Jim", "Jimerson"));
+    }
+
     @GetMapping("v2/person")
     public PersonV2 personV2(){
         return new PersonV2(new Name("Jim", "Jimerson"));
