@@ -1,17 +1,19 @@
 package com.in28minutes.rest.webservices.restfulwebservices.filtering;
 
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
     private String field1;
     private String field2;
 
-    @JsonIgnore
+//    @JsonIgnore
     private String field3;
 
-    @JsonIgnoreProperties(value={"field2"}) // doesn't work for some reason, no difference from @JsonIgnore other than you pass in the names of the fields
+//    @JsonIgnoreProperties(value={"field2"}) doesn't work for some reason, no difference from @JsonIgnore other than you pass in the names of the fields
     public SomeBean(String field1, String field2, String field3) {
         super();
         this.field1 = field1;
