@@ -11,6 +11,26 @@ public class PersonVersioningControl {
         return new PersonV1("Bob Boberson");
     }
 
+    @GetMapping(value = "person/param", params = "version=1")
+    public PersonV1 personV1Param(){
+        return new PersonV1("Bob Boberson");
+    }
+
+    @GetMapping(value = "person/param", params = "version=2")
+    public PersonV2 personV2Param(){
+        return new PersonV2(new Name("Jim", "Jimerson"));
+    }
+
+    @GetMapping(value = "person/header", headers = "version=1")
+    public PersonV1 personV1Header(){
+        return new PersonV1("Bob Boberson");
+    }
+
+    @GetMapping(value = "person/header", headers = "version=2")
+    public PersonV2 personV2Header(){
+        return new PersonV2(new Name("Jim", "Jimerson"));
+    }
+
     @GetMapping("v2/person")
     public PersonV2 personV2(){
         return new PersonV2(new Name("Jim", "Jimerson"));
